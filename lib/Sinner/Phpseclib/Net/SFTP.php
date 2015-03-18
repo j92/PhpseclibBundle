@@ -1541,10 +1541,13 @@ class Net_SFTP extends Net_SSH2 {
 
         $this->_logError($response);
 
+        /**
+         * Needed to comment out this statement cause it returned false even when the file was succesfully downloaded
+         */
         // check the status from the NET_SFTP_STATUS case in the above switch after the file has been closed
-        if ($this->packet_type != NET_SFTP_STATUS_OK) {
-            return false;
-        }
+        //if ($this->packet_type != NET_SFTP_STATUS_OK) {
+        //    return false;
+        //}
 
         if (isset($content)) {
             return $content;
